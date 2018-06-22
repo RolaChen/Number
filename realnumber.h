@@ -5,6 +5,8 @@
 class RealNumber: public Number
 {
 public:
+  friend RealNumber operator+(const RealNumber&, const RealNumber&);
+  friend RealNumber operator*(const RealNumber&, const RealNumber&);
   RealNumber(double=0);
   ~RealNumber();
   virtual void print();

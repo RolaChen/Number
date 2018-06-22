@@ -10,6 +10,7 @@ ComplexNumber::ComplexNumber(string s)
   double a1=0,a2=0,b1=0,b2=0;
   bool j1=0,j2=0;
   bool first=1;
+  bool j3=0;
   int num=1;
   sign=1;
   for(int i=0;i<n;i++)
@@ -35,10 +36,19 @@ ComplexNumber::ComplexNumber(string s)
     }
     else
     {
+       if(!j3)
+       {
+          if(s[i]=='i')
+          {
+            if(sign=1)
+               b1=1;
+            else b1=-1;
+          }
+       }
        if(!j2)
        {
           if(s[i]>='0'&&s[i]<='9')
-            b1=b1*10+s[i]-'0';
+            b1=b1*10+s[i]-'0',j3=1;
           else if(s[i]=='.')
             j2=1;
        }
@@ -77,6 +87,7 @@ void ComplexNumber::print()
       else
         cout<<"-i"<<endl;
   }
+  else cout<<endl;
 }
 
 ComplexNumber ComplexNumber::add(const ComplexNumber &other)
@@ -96,6 +107,30 @@ ComplexNumber ComplexNumber::mul(const ComplexNumber &other)
     sign=0;
   else
     sign=1;
+  return obj;
+}
+
+ComplexNumber operator+(const ComplexNumber& other1, const ComplexNumber& other2)
+{
+  ComplexNumber obj("0");
+  obj.a=other1.a+other2.a;
+  obj.b=other1.b+other2.b;
+  if(obj.b<0)
+    obj.sign=0;
+  else
+    obj.sign=1;
+  return obj;
+}
+
+ComplexNumber operator*(const ComplexNumber& other1, const ComplexNumber& other2)
+{
+  ComplexNumber obj("0");
+  obj.a=other1.a*other2.a-other1.b*other2.b;
+  obj.b=other1.a*other2.b+other1.b*other2.a;
+  if(obj.b<0)
+    obj.sign=0;
+  else
+    obj.sign=1;
   return obj;
 }
 

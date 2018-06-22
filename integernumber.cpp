@@ -27,3 +27,15 @@ IntegerNumber IntegerNumber::mul(const IntegerNumber &other)
   return k;
 }
 
+IntegerNumber operator+ (const IntegerNumber& other1, const IntegerNumber & other2)
+{
+  IntegerNumber k(other1.n+other2.n);
+  return k;
+}
+
+IntegerNumber operator* (const IntegerNumber& other1, const IntegerNumber & other2)
+{
+  IntegerNumber k(other1.n*other2.n);
+  return k;
+}
+

@@ -7,6 +7,8 @@
 class IntegerNumber:public RealNumber
 {
 public:
+  friend IntegerNumber operator+(const IntegerNumber&, const IntegerNumber&);
+  friend IntegerNumber operator*(const IntegerNumber&, const IntegerNumber&); 
   IntegerNumber(int);
   ~IntegerNumber();
   void print();

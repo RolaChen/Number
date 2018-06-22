@@ -31,3 +31,14 @@ RealNumber RealNumber::mul (const RealNumber & other)
   return obj;
 }
 
+RealNumber operator+(const RealNumber& other1, const RealNumber& other2)
+{
+  RealNumber obj(other1.n+other2.n);
+  return obj;
+}
+
+RealNumber operator*(const RealNumber& other1, const RealNumber& other2)
+{
+  RealNumber obj(other1.n*other2.n);
+  return obj;
+}

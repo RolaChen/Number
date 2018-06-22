@@ -6,6 +6,8 @@
 class ComplexNumber:public Number
 {
 public:
+  friend ComplexNumber operator+(const ComplexNumber&, const ComplexNumber&);
+  friend ComplexNumber operator*(const ComplexNumber&, const ComplexNumber&);
   ComplexNumber(std::string);
   ~ComplexNumber();
   void print();
